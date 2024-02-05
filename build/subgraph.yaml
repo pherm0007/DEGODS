@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: degod
+    network: mainnet
+    source:
+      address: "0x8821BeE2ba0dF28761AffF119D66390D594CD280"
+      abi: degod
+      startBlock: 16940173
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AdminChanged
+        - BeaconUpgraded
+        - Upgraded
+      abis:
+        - name: degod
+          file: degod/abis/degod.json
+      eventHandlers:
+        - event: AdminChanged(address,address)
+          handler: handleAdminChanged
+        - event: BeaconUpgraded(indexed address)
+          handler: handleBeaconUpgraded
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: degod/degod.wasm

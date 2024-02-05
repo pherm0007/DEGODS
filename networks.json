@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "degod": {
+      "address": "0x8821BeE2ba0dF28761AffF119D66390D594CD280",
+      "startBlock": 16940173
+    }
+  }
+}
